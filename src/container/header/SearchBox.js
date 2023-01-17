@@ -18,7 +18,7 @@ const SearchBox = ({products}) => {
       <div style={{
         width:"180px" ,
         minHeight:"60px" ,
-        backgroundColor :"red",
+        backgroundColor :"",
         position:"absolute",
         top:"45px" ,
         left : "0px",
@@ -29,7 +29,7 @@ const SearchBox = ({products}) => {
     }}>
      
     {
-       filtredValue.map((item)=> <p>{item.title}</p> )
+       //filtredValue.map((item)=> <p>{item.title}</p> )
     }
     </div>
       <div className='categories' >
