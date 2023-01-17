@@ -1,0 +1,20 @@
+.card{
+    width:220px  ;
+    height: fit-content;
+    margin: 16px auto;
+    border: 1px solid #4d4d4d98;
+    border-radius: 8px;
+    padding: 8px;
+    overflow: hidden;
+
+}
+.card img{
+    width:fit;
+    height: 160px;
+}
+.card p {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 16px auto;
+}

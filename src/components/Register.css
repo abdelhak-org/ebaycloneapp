@@ -1,0 +1,138 @@
+.container {
+    width:80vw;
+    height: 100vh;
+    margin: 0px auto;
+    padding-top:12px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+
+
+  }
+  
+  .register-box {
+    width: 40%;
+    padding: 16px;
+    text-align: left;
+  }
+  
+  .register-box h3 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4d4d4d;
+    font-weight: bolder;
+    padding: 13.5px 0px;
+    text-align: start;
+  }
+  .register-box hr {
+    width: 100%;
+    color: #4d4d4d;
+    margin: 15px 0px;
+
+  }
+  
+  .email-box,
+  .password-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #4d4d4d;
+  }
+  
+  .email-box input,
+  .password-box input {
+    padding: 12px;
+    border-radius: 6px;
+    background-color: rgba(173, 216, 230, 0.166);
+    margin: 16px 0px;
+    width: 70%;
+    box-shadow: 0px 0px 5px grey;
+  }
+  .email-box input:focus {
+    border: 1px solid #508200;
+    background-color: #ffffff;
+    box-shadow: none;
+  } 
+ 
+  .password-box input:focus {
+    border: 1px solid #508200;
+    background-color: #ffffff;
+    box-shadow: none;
+
+  } 
+ 
+  .register-box button {
+    margin-left: 28px;
+    margin-top: 32px;
+    background-color: #72b505;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .register-box button:hover{
+    background-color: #4f7e02;
+  }
+  /* register box */
+  
+  .register-register-box {
+    width: 40%;
+    min-height: 300px;
+    padding: 16px;
+  }
+  .register-register-box h3 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4d4d4d;
+    font-weight: bolder;
+    padding: 13.5px 0px;
+    text-align: start;
+  }
+  .register-register-box hr {
+    width: 100%;
+    color: #4d4d4d;
+    margin: 56px 0px;
+  }
+  .register-register-box ul {
+    list-style: none;
+  }
+  .register-register-box ul li {
+    display: block;
+    text-align: start;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4d4d4d;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .register-register-box button {
+    padding: 12px 16px;
+    display: block;
+    margin-left: -4px;
+    margin-top: 75px;
+  }
+  .Nutzungsbedingungen{
+    width: 100%;
+    font-size: 16px;
+    margin-top: 16px;
+    color: #4d4d4d;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 22px;
+
+  }
+  .bedinregel{
+    width: 100%;
+    display: flex;
+    font-size: 16px;
+    margin-top: 16px;
+    color: #4d4d4d;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 22px;
+
+  }
+  .bedinregel input {
+    width: 16px;
+    margin-right:38px;
+  }
