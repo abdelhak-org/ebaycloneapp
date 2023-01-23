@@ -1,20 +1,16 @@
 import React ,{ useState , useEffect} from 'react';
 import "./searchbox.css"
 
-const SearchBox = ({products}) => {
+const SearchBox = ({products , setSearchvalue}) => {
   const [displayCategories , setDisplayCategories] = useState(false);
-  const [searchValue , setSearchValue ] = useState("");
-  const [filtredValue , setFiltredValue] = useState([]);
 
 
   useEffect(()=>{
-    products.filter((item)=>{
-     return item.title.includes(searchValue)? setFiltredValue(item) :"null" ;
-    })
+   
   })
   return (
     <div className='search-box'>
-      <input placeholder='Search..'  onChange={(e)=> setSearchValue(e.target.value) }/>
+      <input placeholder='Search..'   onChange={(e)=> setSearchvalue(e.target.value)}/>
       <div style={{
         width:"180px" ,
         minHeight:"60px" ,
@@ -28,19 +24,17 @@ const SearchBox = ({products}) => {
     
     }}>
      
-    {
-       //filtredValue.map((item)=> <p>{item.title}</p> )
-    }
+  
     </div>
       <div className='categories' >
         <h4 onClick={()=> setDisplayCategories(!displayCategories)} >Alle kategorien </h4>
-        {
+        { 
           displayCategories &&  
           <ul className='links-box '>
-          <li>Autos</li>
-          <li>Immobilien</li>
-          <li>Jobs</li>
-          <li>Mode && Beauty</li>
+          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Autos</li>
+          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Immobilien</li>
+          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Jobs</li>
+          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Mode && Beauty</li>
         </ul>
         
         

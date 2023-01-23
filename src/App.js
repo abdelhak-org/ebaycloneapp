@@ -7,22 +7,25 @@ import PublishNewAnounce from './components/PublishNewAnounce';
 import  axios from "axios"
 
 const App = () => {
-    const [products , setProducts] = useState([])
+    const [products , setProducts] = useState([]);
+    const [searchvalue , setSearchvalue]= useState("");
+
     useEffect(()=>{
      axios.get("https://fakestoreapi.com/products").then((response)=>{
-           console.log(products);
-           setProducts(response.data)
-     })
-    },[products])
+           setProducts(response.data);
+     });
+     console.log(searchvalue)
+    },[products, searchvalue])
 
     return (
     <div className='App'>
     <Router>
 
     <Navbar/>
-    <Header products ={products}/>
+    <Header products ={products} setSearchvalue={setSearchvalue}/>
+    <p>{searchvalue}</p>
     <Routes>
-        <Route exact path='/' element={<Main products={products}/>} />
+        <Route exact path='/' element={<Main products={products} searchvalue={searchvalue}/>} />
         <Route exact path='/aboutus' element={< Aboutus/>} />
         <Route exact path='/contactus' element={<Contactus/>} />
         <Route exact path='/register' element={<Register/>} />

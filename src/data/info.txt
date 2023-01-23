@@ -1,0 +1,70 @@
+import {auth } from "../data/firebase.config";
+import { createUserWithEmailAndPassword , signOut  , onAuthStateChanged} from 'firebase/auth';
+
+  onAuthStateChanged(auth , (currentUser)=>{
+    setLogedInUser(currentUser)})
+
+  const  [userEmail , setUserEmail] = useState("");
+  const  [userPassword ,  setUserPassword ]  = useState("");
+  const [logedInUser , setLogedInUser ] = useState({});
+ 
+
+// Create the user with the email and password
+   createUserWithEmailAndPassword(auth, userEmail, userPassword)
+  .then(user => {
+    console.log(`Successfully created user with email: ${userEmail}`);
+  })
+  .catch(error => {
+    console.error("error");
+  });
+  
+  onAuthStateChanged(auth , (currentUser)=>{
+     console.log(currentUser)  ;
+     setLogedInUser(currentUser)
+  })
+
+  }
+  const submitHandler =(e)=>{
+    e.preventDefault();
+    Register();
+    setUserEmail("");
+    setUserPassword("")
+  }
+ const logOut=async ()=>{
+     await signOut(auth)
+ }
+
+
+//////////////logedInUser
+   const [logedUser  , setLogedUser] = useState({});
+     
+     onAuthStateChanged(auth , (currentUser)=>{
+       setLogedUser(currentUser)})
+
+  const LoginHandler = async(e)=>{
+   
+     e.preventDefault();
+
+    // Create the user with the email and password
+     signInWithEmailAndPassword(auth, logedInEmail, logedInPassword )
+  .then(user => {
+    console.log(`Successfully logedin  with email: ${logedInEmail}`);
+    setLogedInEmail("");
+    setLogedInPassword("");
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+  }
+  const logout = async()=>{
+   await signOut(auth);
+  }
+
+  const navigateto = useNavigate();
+
+
+import { useNavigate } from 'react-router-dom';
+
+import {auth} from "../data/firebase.config";
+import { signInWithEmailAndPassword , onAuthStateChanged, signOut} from 'firebase/auth';

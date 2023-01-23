@@ -26,7 +26,6 @@ const DisplayInfos = () => {
 
    useEffect(()=>{
     getData();
-    console.log(data) 
 
    })
 
