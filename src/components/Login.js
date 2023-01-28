@@ -3,16 +3,13 @@ import { BaseButton} from "../components";
 import {AiFillStar , AiOutlineContacts} from "react-icons/ai";
 import {FaPencilAlt} from "react-icons/fa";
 import "./login.css";
-import {auth} from "../data/firebase.config";
-import { onAuthStateChanged } from 'firebase/auth';
+//import {auth} from "../data/firebase.config";
+//import { onAuthStateChanged } from 'firebase/auth';
 
 const Login = () => {
      const [logedInEmail , setLogedInEmail] = useState("");
      const [logedInPassword , setLogedInPassword] = useState("")
-     const [logedinuser , setLogedinuser ] = useState({})
-     onAuthStateChanged(auth , (currentUser  )=>{
-        setLogedinuser(currentUser);
-     })
+    
   return (
     <div className='container'>
     
@@ -38,9 +35,7 @@ const Login = () => {
 
    <div className='register-box'>
     {
-     logedinuser ? <p> logedin email is :{logedinuser.email}</p>
-     
-     :
+    
    <>
      <h3> Noch nicht registriert ? </h3>
     <hr/>

@@ -31,10 +31,10 @@ const SearchBox = ({products , setSearchvalue}) => {
         { 
           displayCategories &&  
           <ul className='links-box '>
-          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Autos</li>
-          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Immobilien</li>
-          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Jobs</li>
-          <li  onClick={(e)=> setSearchvalue(e.target.value)}>Mode && Beauty</li>
+          <li  onClick={(e)=> setSearchvalue("auto")}>Autos</li>
+          <li  onClick={(e)=> setSearchvalue("immobilien")}>Immobilien</li>
+          <li  onClick={(e)=> setSearchvalue("job")}>Jobs</li>
+          <li  onClick={(e)=> setSearchvalue("mode")}>Mode && Beauty</li>
         </ul>
         
         
