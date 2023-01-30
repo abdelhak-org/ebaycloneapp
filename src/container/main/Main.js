@@ -9,13 +9,24 @@ const Main = ({products , searchvalue}) => {
   
   {
     
-    products?.map((product)=> {
+    products?.filter((product)=> {
+      return product.category.toLowerCase().includes(searchvalue)
+    }).map((product)=>{
       return (
+
         <Card image={product.image} key ={product.id} category ={product.category}
          price={product.price} description={product.description}/>
-     
+
+
       )
     })
+   
+  
+
+
+
+
+
  }
     
     

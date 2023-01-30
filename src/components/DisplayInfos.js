@@ -1,58 +1,41 @@
 import React , { useState , useEffect} from  'react';
 import "./displayinfos.css";
-import {collection ,getDocs  } from "firebase/firestore" ;
-import { db } from  "../data/firebase.config";
-
+import {auth} from "../data/firebase.config";
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 
 const DisplayInfos = () => {
-  const [data  , setData] = useState([]);
-
-  const getData = async () => {
-       
-    await getDocs(collection(db, "users"))
-        .then((querySnapshot)=>{               
-            const newData = querySnapshot.docs
-                .map((doc) => ({...doc.data(), id:doc.id }));
-            setData(newData); 
-
-        })
-   
-
-
-
-    };
+  const [data  , setData] = useState({});
+  
+  
 
 
    useEffect(()=>{
-    getData();
+    onAuthStateChanged(auth , (currentUser)=>{
+     setData(currentUser);
+    })
 
    })
-
+   const logOut = async()=>{
+    signOut(auth)
+  }
 
   return (
-     <div className="info-box">
+    <div className="info-box">
 
       <h3> my Profile   </h3>
-      { data.map((user)=>{
-        return (
-          <>
-          <ul key={Math.random()*10}>
-
-          <li> name : {user.name}</li>
-          <li> Job  :   {user.job}</li>
-          <p> {user.desc}</p>
-
-          </ul>
-          
-          </>
-          
+      {data?
+      <>
+      <p>{data.email}</p>
+      <p  onClick={logOut}
+      style={{fontSize:"18px ",cursor:"pointer", fontWeight:"bold" ,color:"#333", marginTop:"16px"}}> Logout</p>
+      </>
+      : ""
 
 
-        )
-      })}
+      }
     
-     
+    
     </div>
   )
 }

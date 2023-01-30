@@ -4,6 +4,7 @@ import {FaPencilAlt} from "react-icons/fa";
 import "./Register.css" ;
 import {auth} from "../data/firebase.config";
 import { createUserWithEmailAndPassword , onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
@@ -12,10 +13,12 @@ const Register = () => {
   const  [userPassword ,  setUserPassword ]  = useState("");
   const [logedUser , setLogedUser]   = useState({});
   // submit handler
+  const navigateto=useNavigate();
 
   const submitHandler = async (e)=>{
     e.preventDefault();
    await createUserWithEmailAndPassword(auth,userEmail , userPassword );
+   navigateto("/infos")
 
   }
   
@@ -33,7 +36,7 @@ const Register = () => {
     <h3> Registrieren in 30 Sekunden
     </h3>
     <hr/>
-    <form  onSubmit={submitHandler}>
+    <form  >
       <div className='email-box'>
       <label>E-mail :</label>
       <input  placeholder='Enter your Email' value={userEmail}  onChange={ (e)=> setUserEmail(e.target.value) } />
@@ -49,7 +52,7 @@ const Register = () => {
         Ja, zu regelmäßigen Mails von uns mit Produktinfos, Tipps, Aktionen und spannenden Geschichten über uns   und mobile.de - Abmelden geht jederzeit
         </p>
         </div>
-         <button type='submit'>Kostenlos registrieren</button>
+         <button type='submit'onClick={submitHandler} >Kostenlos registrieren</button>
     
     </form>
     

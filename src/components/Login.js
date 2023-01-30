@@ -3,12 +3,23 @@ import { BaseButton} from "../components";
 import {AiFillStar , AiOutlineContacts} from "react-icons/ai";
 import {FaPencilAlt} from "react-icons/fa";
 import "./login.css";
+import {auth} from "../data/firebase.config";
+import {signInWithEmailAndPassword } from "firebase/auth";
+import {useNavigate} from "react-router-dom"
 //import {auth} from "../data/firebase.config";
 //import { onAuthStateChanged } from 'firebase/auth';
 
 const Login = () => {
      const [logedInEmail , setLogedInEmail] = useState("");
      const [logedInPassword , setLogedInPassword] = useState("")
+     const navigateto = useNavigate();
+    
+     const logIn= async (e)=>{
+      e.preventDefault();
+      await signInWithEmailAndPassword(auth , logedInEmail , logedInPassword);
+       navigateto("/infos")
+
+     }
     
   return (
     <div className='container'>
@@ -28,7 +39,10 @@ const Login = () => {
       onChange={(e)=>setLogedInPassword(e.target.value) } />
       </div>
       <p className='password-vergessen '>Passwort vergessen?</p>
-      <BaseButton text="Einloggen"/>
+      <button type='submit' onClick={ logIn}
+       style={{ padding:"4px 8px" , backgroundColor:"green" ,color:"white" , fontFamily:"bold"
+       }}>
+         Einloggen</button>
     </form>
    </div>
 
